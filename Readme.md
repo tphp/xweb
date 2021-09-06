@@ -2,6 +2,9 @@
 
 - 使用基本步骤请参考: [koa-web](https://www.npmjs.com/package/koa-web)
 - 新增session的支持，[koa-session](https://www.npmjs.com/package/koa-session) 数据保存到根目录的.cache中
+- koa-session默认保存到cookie中，这种情况并不安全
+- 但koa-session也提供了数据保存接口，xweb简单的封装了下
+- xweb启动时将自动清理过期的session数据文件
 
 #### 安装 xweb
 
@@ -20,6 +23,7 @@ const web = new Xweb();
 // 参考: https://www.npmjs.com/package/koa-web
 // 除 sessionKey 和 sessionMaxAge 外
 web.config({
+  // session 将保存到 __dirname/.cache中
   path: __dirname,
 
   // cookie键名 默认: xweb
