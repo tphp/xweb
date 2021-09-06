@@ -28,8 +28,9 @@ web.config({
 
   // cookie键名 默认: xweb
   // sessionKey: "xweb",
+  
   // cookie过期时间， 默认 86400000 (一天)
-  sessionMaxAge: 30000
+  // sessionMaxAge: 86400000
 });
 
 // // 调用于: koa.use
@@ -44,17 +45,82 @@ web.listen(3000, () => {
 });
 ```
 
-#### session调用实例
+---
+
+## session调用实例
+
+#### 创建html页面: /html/session/login.html
+```html
+<html>
+<head>
+  <title>{% if login %}欢迎: {{ username }}{% else %}登录测试{% endif %}</title>
+</head>
+<body>
+{% if login %}
+  <div>欢迎: {{ username }}</div>
+  <form action="login.loginout" method="post">
+    <div><input type="hidden" name="loginout" value="true"></div>
+    <div><input type="submit" value="退出"></div>
+  </form>
+{% else %}
+  <form action="login.login" method="post">
+    <div><input type="text" name="username"></div>
+    <div><input type="text" name="password"></div>
+    <div><input type="submit" value="登录"></div>
+  </form>
+{% endif %}
+</body>
+</html>
+```
+
+#### 创建数据控制页面: /html/session/login.js
 
 ```js
+// html登录页面
 module.exports.html = async hd => {
-  // 设置 session
-  hd.ctx.session.say = 'hello';
-
-  // 获取 session
-  console.log(hd.ctx.session.say);
-  
-  return hd.ctx.session;
+  if (hd.ctx.session.login) {
+    hd.view({
+      login: hd.ctx.session.login,
+      username: hd.ctx.session.username
+    });
+  } else {
+    hd.view({
+      login: false
+    });
+  }
 };
 
+// 用户登录 账号: admin 密码: admin
+module.exports.login = async (hd, data) => {
+  if (!hd.isPost()) {
+    return "数据提交错误!";
+  }
+
+  let username = data.username;
+  let password = data.password;
+
+  if (username !== 'admin' || password !== 'admin') {
+    return "登录失败";
+  }
+
+  hd.ctx.session.login = true;
+  hd.ctx.session.username = username;
+
+  hd.ctx.status = 301;
+  hd.ctx.redirect('/session/login');
+
+  return "登录成功";
+};
+
+// 用户登出
+module.exports.loginout = async (hd, data) => {
+  if (data.loginout === 'true') {
+    hd.ctx.session = null;
+  }
+
+  hd.ctx.status = 301;
+  hd.ctx.redirect('/session/login');
+};
 ```
+
+- 访问: http://localhost:3000/session/login
