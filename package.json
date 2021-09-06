@@ -1,0 +1,19 @@
+{
+  "name": "xweb",
+  "version": "0.0.5",
+  "description": "web xweb",
+  "main": "index.js",
+  "author": "tphp",
+  "license": "MIT",
+  "repository": "tphp/xweb",
+  "dependencies": {
+    "koa": "^2.13.0",
+    "koa-web": "^1.0.0",
+    "koa-session": "^6.2.0"
+  },
+  "keywords": [
+    "web",
+    "xweb",
+    "koa-web"
+  ]
+}
