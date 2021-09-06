@@ -163,6 +163,7 @@ module.exports = class Xweb {
       config['maxAge'] = parseInt(sMaxAge);
     } else {
       sMaxAge = 86400000;
+      config['maxAge'] = sMaxAge;
     }
 
     if (this.__config !== undefined) {
