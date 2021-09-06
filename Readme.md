@@ -1,4 +1,4 @@
-#### 使用说明
+## 使用说明
 
 - 使用基本步骤请参考: [koa-web](https://www.npmjs.com/package/koa-web)
 - 新增session的支持，[koa-session](https://www.npmjs.com/package/koa-session) 数据保存到根目录的.cache中
@@ -12,7 +12,7 @@
 npm i xweb
 ```
 
-#### 使用实例
+#### 启动程序
 
 ```js
 const Xweb = require("xweb");
@@ -28,7 +28,7 @@ web.config({
 
   // cookie键名 默认: xweb
   // sessionKey: "xweb",
-  
+
   // cookie过期时间， 默认 86400000 (一天)
   // sessionMaxAge: 86400000
 });
@@ -36,7 +36,7 @@ web.config({
 // // 调用于: koa.use
 // web.use(async (ctx, next) => {
 //   await next();
-//   ctx.body = 'fff';
+//   ctx.body = 'xweb';
 // });
 
 // 调用于: koa.listen
