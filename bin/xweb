@@ -7,9 +7,21 @@ const path = require('path');
 
 const web = new Xweb();
 
+
+let outPath = path.resolve(__dirname, '..').replace(/[\\]/g, "/");
+let isTop = true;
+let pos = outPath.lastIndexOf("/");
+if (pos > 0 && outPath.substring(pos + 1) === 'xweb') {
+  isTop = false;
+}
+
+if (isTop) {
+  outPath += "/xweb";
+}
+
 web.config({
-  path: path.resolve(__dirname, '../xweb/test'),
-  sessionPath: path.resolve(__dirname, '../../')
+  path: outPath + "/test",
+  sessionPath: path.resolve(outPath, '../../')
 });
 
 web.listen(3000, () => {

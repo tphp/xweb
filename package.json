@@ -1,6 +1,6 @@
 {
   "name": "xweb",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "web xweb",
   "main": "index.js",
   "author": "tphp",
@@ -17,9 +17,6 @@
   "scripts": {
     "test": "npx xweb"
   },
-  "files": [
-    "bin/xweb"
-  ],
   "keywords": [
     "web",
     "xweb",
