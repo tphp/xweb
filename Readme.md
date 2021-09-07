@@ -6,16 +6,18 @@
 - 但koa-session也提供了数据保存接口，xweb简单的封装了下
 - xweb启动时将自动清理过期的session数据文件
 
-#### 安装 xweb
-
-```
-npm i xweb
-```
-
 #### 调试 xweb
 
 ```
 npx xweb
+
+无需安装访问：http://localhost:3000 就可以看到效果
+```
+
+#### 安装 xweb
+
+```
+npm i xweb
 ```
 
 #### 启动程序
@@ -31,6 +33,9 @@ const web = new Xweb();
 web.config({
   // session 将保存到 __dirname/.cache中
   path: __dirname,
+
+  // session文件保存路径
+  // sessionPath: __dirname,
 
   // cookie键名 默认: xweb
   // sessionKey: "xweb",

@@ -175,7 +175,17 @@ module.exports = class Xweb {
           path += "/";
         }
 
-        const cachePath = path + ".cache/session/";
+        let cachePath = this.__config.sessionPath;
+        if (cachePath === undefined || typeof cachePath !== 'string') {
+          cachePath = path + ".cache/session/";
+        } else {
+          cachePath = cachePath.trim();
+          if (!["/", "\\"].includes(cachePath[cachePath.length - 1])) {
+            cachePath += "/";
+          }
+
+          cachePath += ".cache/session/";
+        }
 
         this.clearKeys(cachePath, sMaxAge);
 
