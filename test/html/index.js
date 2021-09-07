@@ -10,6 +10,14 @@ module.exports.html = async hd => {
       login: false
     });
   }
+
+  hd.css("index.css");
+
+  hd.view("path", hd.data.rootPath);
+};
+
+module.exports.css = hd => {
+  return hd.read();
 };
 
 // 用户登录 账号: admin 密码: admin

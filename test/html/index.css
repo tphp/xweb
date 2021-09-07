@@ -1,0 +1,18 @@
+body {
+  color: #080;
+}
+
+.form .text{
+  margin-bottom: 10px;
+  color: #F33;
+}
+
+.form .text span {
+  width: 80px;
+  display: inline-block;
+}
+
+.top {
+  margin: 10px 0px 20px;
+  color: #666;
+}

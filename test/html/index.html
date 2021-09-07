@@ -3,6 +3,7 @@
   <title>{% if login %}欢迎: {{ username }}{% else %}登录测试{% endif %}</title>
 </head>
 <body>
+<div class="top">xweb Demo: user: admin, password: admin</div>
 {% if login %}
   <div>欢迎: {{ username }}</div>
   <form action="index.logout" method="post">
@@ -10,11 +11,12 @@
     <div><input type="submit" value="退出"></div>
   </form>
 {% else %}
-  <form action="index.login" method="post">
-    <div><input type="text" name="username"></div>
-    <div><input type="text" name="password"></div>
+  <form class="form" action="index.login" method="post">
+    <div class="text"><span>user: </span><input type="text" name="username"></div>
+    <div class="text"><span>password: </span><input type="text" name="password"></div>
     <div><input type="submit" value="登录"></div>
   </form>
 {% endif %}
+<div>页面根路径: {{ path }}</div>
 </body>
 </html>
