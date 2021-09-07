@@ -175,7 +175,7 @@ module.exports = class Xweb {
           path += "/";
         }
 
-        const cachePath = path + ".cache/";
+        const cachePath = path + ".cache/session/";
 
         this.clearKeys(cachePath, sMaxAge);
 
