@@ -3,7 +3,6 @@
   <title>{% if login %}欢迎: {{ username }}{% else %}登录测试{% endif %}</title>
 </head>
 <body>
-<div class="top">xweb Demo: user: admin, password: admin</div>
 {% if login %}
   <div>欢迎: {{ username }}</div>
   <form action="index.logout" method="post">
@@ -11,6 +10,7 @@
     <div><input type="submit" value="退出"></div>
   </form>
 {% else %}
+  <div class="top">xweb Demo: user: admin, password: admin</div>
   <form class="form" action="index.login" method="post">
     <div class="text"><span>user: </span><input type="text" name="username"></div>
     <div class="text"><span>password: </span><input type="text" name="password"></div>
@@ -18,5 +18,10 @@
   </form>
 {% endif %}
 <div>页面根路径: {{ path }}</div>
+<div>不重启服务，可以尝试更改页面根路径下的文件，然后再刷新页面。</div>
+<div class="down">
+  <div>核心应用: <a href="https://www.npmjs.com/package/koa-web" target="_blank">koa-web</a></div>
+  <div>说明文档: <a href="https://www.npmjs.com/package/xweb" target="_blank">xweb</a></div>
+</div>
 </body>
 </html>
