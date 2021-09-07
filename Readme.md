@@ -58,8 +58,8 @@ web.listen(3000, () => {
 <body>
 {% if login %}
   <div>欢迎: {{ username }}</div>
-  <form action="login.loginout" method="post">
-    <div><input type="hidden" name="loginout" value="true"></div>
+  <form action="login.logout" method="post">
+    <div><input type="hidden" name="logout" value="true"></div>
     <div><input type="submit" value="退出"></div>
   </form>
 {% else %}
@@ -113,8 +113,8 @@ module.exports.login = async (hd, data) => {
 };
 
 // 用户登出
-module.exports.loginout = async (hd, data) => {
-  if (data.loginout === 'true') {
+module.exports.logout = async (hd, data) => {
+  if (data.logout === 'true') {
     hd.ctx.session = null;
   }
 

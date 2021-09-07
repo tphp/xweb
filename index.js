@@ -78,7 +78,7 @@ module.exports = class Xweb {
 
       return JSON.parse(fs.readFileSync(jsonFile).toString());
     } catch (e) {
-      console.log(e);
+      console.error(e);
       return {};
     }
   }
