@@ -12,6 +12,12 @@
 npm i xweb
 ```
 
+#### 调试 xweb
+
+```
+npx xweb
+```
+
 #### 启动程序
 
 ```js

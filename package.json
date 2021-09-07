@@ -1,6 +1,6 @@
 {
   "name": "xweb",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "web xweb",
   "main": "index.js",
   "author": "tphp",
@@ -11,6 +11,15 @@
     "koa-web": "^1.0.0",
     "koa-session": "^6.2.0"
   },
+  "bin": {
+    "xweb": "./bin/xweb"
+  },
+  "scripts": {
+    "test": "npx xweb"
+  },
+  "files": [
+    "bin/xweb"
+  ],
   "keywords": [
     "web",
     "xweb",
